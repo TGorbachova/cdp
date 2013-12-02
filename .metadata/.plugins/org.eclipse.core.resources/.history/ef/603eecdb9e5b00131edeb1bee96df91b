@@ -33,7 +33,7 @@ public class Runner {
 
 		// Create instance of the class TravelTour
 		Object c = Class.forName("com.epam.tour.TravelTour").newInstance();
-		System.out.println("Looks like it works " + c.getClass());
+		System.out.println("Looks like it works" + c);
 
 		// Invoke method TravelTour class using Reflection API
 

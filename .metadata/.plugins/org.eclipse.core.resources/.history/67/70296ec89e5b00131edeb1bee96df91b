@@ -32,8 +32,11 @@ public class Runner {
 		getMethods(someClass);
 
 		// Create instance of the class TravelTour
+		/*String barClassName = getBarImplClass();
+		aBar =
+		  (Bar) Class.forName(barClassName).newInstance();*/
 		Object c = Class.forName("com.epam.tour.TravelTour").newInstance();
-		System.out.println("Looks like it works " + c.getClass());
+		System.out.println(c);
 
 		// Invoke method TravelTour class using Reflection API
 
