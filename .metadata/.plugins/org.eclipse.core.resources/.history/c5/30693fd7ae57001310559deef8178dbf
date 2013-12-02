@@ -1,0 +1,51 @@
+package com.epam.task3;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import com.epam.tour.TravelTour;
+
+public class Runner {
+
+	public Runner() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		TravelTour travelTour = new com.epam.tour.TravelTour();
+		Class someClass  = travelTour.getClass();
+		
+		//Get fields TravelTour class using Reflection API
+		System.out.println("Fields for " + someClass + ":");
+		Field[] fields = someClass.getDeclaredFields();
+		for (Field field : fields) {
+			Class<?> fieldType = field.getType();
+			System.out.println("Òèï: " + fieldType.getName() + "\t Èìÿ: " + field.getName());
+		}
+		
+		//Get methods TravelTour class using Reflection API
+		System.out.println("\nMethods for " + someClass + ":");
+		Method[] methods = someClass.getDeclaredMethods();
+				
+		for (Method meth : methods) {
+		   Annotation[] annotations = meth.getAnnotations();
+		   Class<?> returType = meth.getReturnType();
+		   System.out.print("\t");
+		   for (Annotation a : annotations)
+		       System.out.print("@" + a.annotationType().getSimpleName() + " ");
+		       		 
+		       System.out.print("\t" + meth.getModifiers() + "\t" + returType.getName() + " " + meth.getName() + "(");
+		       System.out.print(meth.getParameterTypes());
+		       System.out.println(") { }");
+		}
+		
+		//Create instance of the class TravelTour
+		Class t = Class.forName("com.epam.tour.TravelTour"); 
+		
+		/*Method method = t.getClass().getMethod("methodName", null);
+		method.invoke(method, null);*/
+
+	}
+
+}

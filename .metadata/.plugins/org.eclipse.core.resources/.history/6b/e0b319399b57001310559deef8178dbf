@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+
+public class Collections {
+	
+	public ArrayList<String> someCollection = new ArrayList<String>(); 
+	someCollection.add("The first");
+	
+	public Collections() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

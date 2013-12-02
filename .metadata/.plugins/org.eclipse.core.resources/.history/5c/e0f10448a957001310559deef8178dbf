@@ -1,0 +1,57 @@
+package com.epam.tour;
+
+
+import java.lang.reflect.*;
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+
+public class Runner {
+	
+	ArrayList<Health> health = new ArrayList<Health>();
+	ArrayList<Excursion> excursion = new ArrayList<Excursion>();
+	ArrayList<Rest> rest = new ArrayList<Rest>();
+	ArrayList<Shopping> shopping = new ArrayList<Shopping>();
+	ArrayList<Cruise> cruise = new ArrayList<Cruise>();
+		
+	public static void main(String[] args) throws ClassNotFoundException {
+		
+		
+		
+		TravelTour travelTour = new TravelTour();
+		Class someClass  = travelTour.getClass();
+		
+		//Get fields TravelTour class using Reflection API
+		Field[] fields = someClass.getDeclaredFields();
+				
+		for (Field field : fields) {
+			Class<?> fieldType = field.getType();
+			System.out.println("Èìÿ: " + field.getName());
+			System.out.println("Òèï: " + fieldType.getName());
+		}
+
+		
+		
+		/*for (Field field : fields) {
+		   System.out.println("\t" + field.getModifiers() + field.getType().toString() + " " + field.getName() + ";");
+		}*/
+		
+		//Get methods TravelTour class using Reflection API
+		Method[] methods = someClass.getDeclaredMethods();
+		for (Method m : methods) {
+		   Annotation[] annotations = m.getAnnotations();
+		   System.out.print("\t");
+		   for (Annotation a : annotations)
+		       System.out.print("@" + a.annotationType().getSimpleName() + " ");
+		       System.out.println();
+		 
+		       System.out.print("\t" + m.getModifiers() + m.getReturnType() + " " + m.getName() + "(");
+		       System.out.print(m.getParameterTypes());
+		       System.out.println(") { }");
+		}
+		
+		//Create instance of the class TravelTour
+		Class t = Class.forName("com.epam.tour.TravelTour"); 
+
+	}
+
+}

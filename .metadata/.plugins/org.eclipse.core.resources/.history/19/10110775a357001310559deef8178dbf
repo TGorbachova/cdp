@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package com.epam.tour;
+
+import java.util.Date;
+
+/**
+ * @author Administrator
+ *
+ */
+public class TravelTour {
+
+	/**
+	 * 
+	 */
+	protected String tourName;
+	protected String diraction;
+	protected String supplyType;
+	protected String vehicleType;
+	protected Date startDate;
+	protected String bookRoom;
+	protected int tourDuration;
+	
+	public TravelTour() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getTourName() {
+		return tourName;
+	}
+
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
+
+}

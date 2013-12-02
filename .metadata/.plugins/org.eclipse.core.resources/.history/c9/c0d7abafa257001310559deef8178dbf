@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.epam.tour;
+
+/**
+ * @author Administrator
+ *
+ */
+public class Cruise extends TravelTour{
+
+	/**
+	 * 
+	 */
+	public Cruise() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

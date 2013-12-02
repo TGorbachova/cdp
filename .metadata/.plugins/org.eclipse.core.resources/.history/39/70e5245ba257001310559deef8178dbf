@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.epam.tour;
+
+/**
+ * @author Administrator
+ *
+ */
+public class Shopping extends TravelTour{
+
+	private boolean taxFree;
+	
+	/**
+	 * 
+	 */
+	public Shopping() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

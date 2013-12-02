@@ -1,0 +1,28 @@
+import java.util.Date;
+
+public class TravelTour {
+	private static String[] tourType;
+	private String tourName;
+	private String supplyType;
+	private String vehicleType;
+	private Date startDate;
+	private String bookRoom;
+	private int tourDuration;
+	
+	
+
+	public TravelTour(){
+		
+		}
+	public TravelTour(String name, String supply){
+		tourName = name;
+		supplyType = supply;
+		
+	}
+	public String getTourName() {
+		return tourName;
+	}
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}	
+}

@@ -1,0 +1,76 @@
+package com.epam.tour;
+
+
+import java.lang.reflect.*;
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+
+public class Runner {
+	
+	//Need to create collection with those types 
+	ArrayList<String> tours = new ArrayList<String>();
+	ArrayList<Health> health = new ArrayList<Health>();
+	ArrayList<Excursion> excursion = new ArrayList<Excursion>();
+	ArrayList<Rest> rest = new ArrayList<Rest>();
+	ArrayList<Shopping> shopping = new ArrayList<Shopping>();
+	ArrayList<Cruise> cruise = new ArrayList<Cruise>();
+		
+	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		//Task 1
+		
+		//Task 2
+		
+		//Task 3
+		TravelTour travelTour = new com.epam.tour.TravelTour();
+		Class<? extends TravelTour> someClass  = travelTour.getClass();
+		
+		//Get fields TravelTour class using Reflection API
+		getFields(someClass);
+		
+		//Get methods TravelTour class using Reflection API
+		getMethods(someClass); 
+		
+		//Create instance of the class TravelTour
+		Class<?> t = Class.forName("com.epam.tour.TravelTour"); 
+		t.newInstance();
+		
+		//Invoke method TravelTour class using Reflection API
+				
+		/*String sMethodName="setTourName";
+		Method method=t.getDeclaredMethod(sMethodName);*/
+		
+		Method ss1Method = t.getDeclaredMethod("setTourName", new Class[] { String.class });
+		System.out.println("calling setString1 with 'val2'");
+		ss1Method.invoke(t, new Object[] { "val2" });
+		
+		/*Method gs1Method = t.getDeclaredMethod("getTourName", new Class[] {});
+		String str1 = (String) getTourName.invoke(t, new Object[] {});
+		System.out.println("getString1 returned: " + str1);*/
+	}
+
+	private static void getMethods(Class<? extends TravelTour> someClass) {
+		System.out.println("\nMethods for " + someClass + ":\n");
+		Method[] methods = someClass.getDeclaredMethods();
+				
+		for (Method meth : methods) {
+			Class<?> returType = meth.getReturnType();
+			System.out.print("\t" + returType.getName() + " " + meth.getName() + "(");
+			Class<?>[] paremeterTypes = meth.getParameterTypes();
+			for (Class<?> param : paremeterTypes) {
+				String params = param.getCanonicalName();
+			    System.out.print(params);
+			    }
+			System.out.println(") { }");
+		}
+	}
+
+	private static void getFields(Class<? extends TravelTour> someClass) {
+		System.out.println("Fields for " + someClass + ":\n");
+		Field[] fields = someClass.getDeclaredFields();
+		for (Field field : fields) {
+			Class<?> fieldType = field.getType();
+			System.out.println("\t“ËÔ: " + fieldType.getName() + "\t »Ïˇ: " + field.getName());
+		}
+	}
+
+}

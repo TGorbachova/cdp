@@ -1,0 +1,10 @@
+package com.epam.tour;
+
+public class Excursion extends TravelTour{
+
+	
+	public Excursion() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

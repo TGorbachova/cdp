@@ -1,0 +1,44 @@
+import java.lang.reflect.*;
+import java.lang.annotation.Annotation;
+
+public class reflection {
+
+public static void main(String[] args) {	
+
+	TravelTour travelTour = new TravelTour();
+	Class someClass  = travelTour.getClass();
+
+	Field[] fields = someClass.getDeclaredFields();
+	for (Field field : fields) {
+	   System.out.println("\t" + field.getModifiers() + field.getType().toString() + " " + field.getName() + ";");
+	}
+	
+	
+	Method[] methods = someClass.getDeclaredMethods();
+	for (Method m : methods) {
+	   Annotation[] annotations = m.getAnnotations();
+	   System.out.print("\t");
+	   for (Annotation a : annotations)
+	       System.out.print("@" + a.annotationType().getSimpleName() + " ");
+	       System.out.println();
+	 
+	       System.out.print("\t" + m.getModifiers() + m.getReturnType() + " " + m.getName() + "(");
+	       System.out.print(m.getParameterTypes());
+	       System.out.println(") { }");
+	}
+	
+	
+	Constructor[] constructors = someClass.getDeclaredConstructors();
+    for (Constructor c : constructors) {
+        System.out.println("\t" + //c.getModifiers() +
+                someClass.getSimpleName() + "(" + 
+        		c.getParameterTypes() + ") { }");
+    }   
+    
+	
+	}
+	public reflection() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+
+
+public class ListTest {
+
+	ArrayList<String> someList = new ArrayList<String>(2);
+	
+	someList.add(1, "text");
+	
+	public ListTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

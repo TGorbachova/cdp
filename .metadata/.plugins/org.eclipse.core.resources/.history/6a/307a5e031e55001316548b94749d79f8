@@ -1,0 +1,11 @@
+
+public class Tour {
+	String name;
+	int duration;
+
+	public Tour(){
+		}
+	public Tour(String name){
+		String tourName = name;
+	}
+}

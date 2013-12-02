@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+
+public class Collections {
+	
+	ArrayList<String> someCollection = new ArrayList<String>(); 
+	
+	public Collections() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.epam.tour;
+
+public class Health extends TravelTour{
+
+	private 
+	public Health() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class Collections {
+	
+	ArrayList list = new ArrayList(); 
+	
+	public Collections() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

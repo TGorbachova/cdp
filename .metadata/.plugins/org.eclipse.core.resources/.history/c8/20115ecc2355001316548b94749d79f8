@@ -1,0 +1,19 @@
+
+public class TravelTour {
+	private String tourName;
+	private int duration;
+	
+
+	public TravelTour(){
+		
+		}
+	public TravelTour(String name){
+		tourName = name;
+	}
+	public String getTourName() {
+		return tourName;
+	}
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
+}

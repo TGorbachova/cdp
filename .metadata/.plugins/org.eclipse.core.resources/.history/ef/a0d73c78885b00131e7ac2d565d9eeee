@@ -1,0 +1,23 @@
+package com.epam.tour;
+
+
+import java.lang.reflect.*;
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+
+public class Runner {
+	
+	//Need to create collection with those types 
+	ArrayList<Health> health = new ArrayList<Health>();
+	ArrayList<Excursion> excursion = new ArrayList<Excursion>();
+	ArrayList<Rest> rest = new ArrayList<Rest>();
+	ArrayList<Shopping> shopping = new ArrayList<Shopping>();
+	ArrayList<Cruise> cruise = new ArrayList<Cruise>();
+		
+	public static void main(String[] args) throws ClassNotFoundException{
+			
+		
+		
+	}
+
+}

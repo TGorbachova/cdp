@@ -1,0 +1,76 @@
+import java.lang.reflect.*;
+import java.lang.annotation.Annotation;
+
+public class reflection {
+
+public static void main(String[] args) {	
+
+	TravelTour travelTour = new TravelTour();
+	Class someClass  = travelTour.getClass();
+
+	Field[] fields = someClass.getDeclaredFields();
+	for (Field field : fields) {
+	   System.out.println("\t" + field.getModifiers() + field.getType().toString() + " " + field.getName() + ";");
+	}
+	
+	
+	Method[] methods = someClass.getDeclaredMethods();
+	for (Method m : methods) {
+	   Annotation[] annotations = m.getAnnotations();
+	   System.out.print("\t");
+	   for (Annotation a : annotations)
+	       System.out.print("@" + a.annotationType().getSimpleName() + " ");
+	       System.out.println();
+	 
+	       System.out.print("\t" + m.getModifiers() + m.getReturnType() + " " + m.getName() + "(");
+	       System.out.print(m.getParameterTypes());
+	       System.out.println(") { }");
+	}
+	
+	
+	Constructor[] constructors = someClass.getDeclaredConstructors();
+    for (Constructor c : constructors) {
+        System.out.println("\t" + c.getModifiers() +
+                someClass.getSimpleName() + "(" + 
+        		c.getParameterTypes().toString() + ") { }");
+    }   
+    
+	
+    
+    
+    
+    
+    try {
+	    Class<?> setFields = travelTour.getClass();
+
+	    Field chap = setFields.getDeclaredField("chapters");
+	   
+	    Field chars = setFields.getDeclaredField("characters");
+	    out.format(fmt, "before", "characters",
+		       Arrays.asList(book.characters));
+	    String[] newChars = { "Queen", "King" };
+	    chars.set(book, newChars);
+	    out.format(fmt, "after", "characters",
+		       Arrays.asList(book.characters));
+
+	    Field t = setFields.getDeclaredField("twin");
+	    out.format(fmt, "before", "twin", book.twin);
+	    t.set(book, Tweedle.DUM);
+	    out.format(fmt, "after", "twin", t.get(book));
+
+        // production code should handle these exceptions more gracefully
+	} catch (NoSuchFieldException x) {
+	    x.printStackTrace();
+	} catch (IllegalAccessException x) {
+	    x.printStackTrace();
+	}
+    
+    
+        
+    
+	}
+	public reflection() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

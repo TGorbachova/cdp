@@ -1,0 +1,5 @@
+1386012700828	Extract method 'GetFields'
+1386012737515	Extract method 'getMethods'
+1386013008062	Rename method 'GetFields'
+1386020176515	Rename local variable 'ss1Method'
+1386021310734	Extract method 'callMethods'
