@@ -1,0 +1,84 @@
+package com.epam.tour;
+
+import java.lang.reflect.*;
+import java.util.ArrayList;
+
+public class Runner {
+
+	// Need to create collection with those types
+	ArrayList<String> tours = new ArrayList<String>();
+	ArrayList<Health> health = new ArrayList<Health>();
+	ArrayList<Excursion> excursion = new ArrayList<Excursion>();
+	ArrayList<Rest> rest = new ArrayList<Rest>();
+	ArrayList<Shopping> shopping = new ArrayList<Shopping>();
+	ArrayList<Cruise> cruise = new ArrayList<Cruise>();
+
+	public static void main(String[] args) throws ClassNotFoundException,
+			NoSuchMethodException, SecurityException, InstantiationException,
+			IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException {
+		// Task 1
+
+		// Task 2
+
+		// Task 3
+		TravelTour travelTour = new com.epam.tour.TravelTour();
+		Class<? extends TravelTour> someClass = travelTour.getClass();
+
+		// Get fields TravelTour class using Reflection API
+		getFields(someClass);
+
+		// Get methods TravelTour class using Reflection API
+		getMethods(someClass);
+
+		// Create instance of the class TravelTour
+		Object c = Class.forName("com.epam.tour.TravelTour").newInstance();
+		System.out.println("Looks like it works " + c.getClass());
+
+		// Invoke method TravelTour class using Reflection API
+
+		callMethods(c, someClass);
+	}
+
+	private static void callMethods(TravelTour t,
+			Class<? extends TravelTour> tClass) throws NoSuchMethodException,
+			IllegalAccessException, InvocationTargetException {
+		Method setMethod = tClass.getDeclaredMethod("setTourName",
+				new Class[] { String.class });
+		System.out.println("calling setTourName with 'First Tour'");
+		setMethod.invoke(t, new Object[] { "First Tour" });
+
+		Method gs1Method = tClass.getDeclaredMethod("getTourName",
+				new Class[] {});
+		String str1 = (String) gs1Method.invoke(t, new Object[] {});
+		System.out.println("getTourName returned: " + str1);
+	}
+
+	private static void getMethods(Class<? extends TravelTour> someClass) {
+		System.out.println("\nMethods for " + someClass + ":\n");
+		Method[] methods = someClass.getDeclaredMethods();
+
+		for (Method meth : methods) {
+			Class<?> returType = meth.getReturnType();
+			System.out.print("\t" + returType.getName() + " " + meth.getName()
+					+ "(");
+			Class<?>[] paremeterTypes = meth.getParameterTypes();
+			for (Class<?> param : paremeterTypes) {
+				String params = param.getCanonicalName();
+				System.out.print(params);
+			}
+			System.out.println(") { }");
+		}
+	}
+
+	private static void getFields(Class<? extends TravelTour> someClass) {
+		System.out.println("Fields for " + someClass + ":\n");
+		Field[] fields = someClass.getDeclaredFields();
+		for (Field field : fields) {
+			Class<?> fieldType = field.getType();
+			System.out.println("\t“ËÔ: " + fieldType.getName() + "\t »Ïˇ: "
+					+ field.getName());
+		}
+	}
+
+}

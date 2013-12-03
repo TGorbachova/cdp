@@ -27,7 +27,7 @@ public class TravelTour {
 	
 	protected TravelTour(String name, String supply, String vehicle, int duration, Date start, String booking){
 		setTourName(name);
-		this.setSupplyType(supply);
+		this.supplyType = supply;
 		this.vehicleType = vehicle;
 		this.tourDuration = duration;
 		this.startDate = start;			
@@ -40,22 +40,6 @@ public class TravelTour {
 
 	public void setTourName(String tourName) {
 		this.tourName = tourName;
-	}
-
-	public String getDiraction() {
-		return diraction;
-	}
-
-	public void setDiraction(String diraction) {
-		this.diraction = diraction;
-	}
-
-	public String getSupplyType() {
-		return supplyType;
-	}
-
-	public void setSupplyType(String supplyType) {
-		this.supplyType = supplyType;
 	}
 
 }
